@@ -26,3 +26,21 @@ def count_words(string)
     # end
     string == "" ? 0 : string.split(" ").length
 end
+
+def reading_time(text)
+    # count_words(text) -> will give us total number of words
+    words_number = count_words(text)
+    if words_number < 200
+        return "Estimated reading time is less than 1 minute"
+    elsif words_number == 200
+        return "Estimated reading time is 1 minute"
+    elsif (words_number / 200) < 60
+        minutes = words_number / 200 
+        return "Estimated reading time is #{minutes.ceil} minutes"
+    else 
+        minutes = words_number / 200
+        hours = minutes / 60
+        return "Estimated reading time is at least #{hours.ceil} hour"
+    end
+    # then work out estimated time (% - use to work out estimated)
+end
