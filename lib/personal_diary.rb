@@ -3,16 +3,20 @@
 
 def make_snippet(string)
     words = string.split(" ")
+    regex = /[!.,:;?@$%&)]/
     # if string is more than 5 words
-    
-    if words.length >= 5
-        words.first(5).join(" ") + "..."
+    # if last character of fifth word is punctuation, delete last character
+    if words.length >= 5 && words[4] =~ regex
+        last_word = words[4].gsub(regex, "...")
+        return words.first(4).join(" ") + " " +last_word
+    elsif words.length >=5
+        return words.first(5).join(" ") + "..."
     # if string is fewer than 5 words
     else   
         return string
     end
-
 end
+
 
 def count_words(string)
     # if string == ""
