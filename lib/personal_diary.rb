@@ -13,3 +13,12 @@ def make_snippet(string)
     end
 
 end
+
+def count_words(string)
+    # if string == ""
+    #     return 0
+    # else
+    #     return string.split(" ").length
+    # end
+    string == "" ? 0 : string.split(" ").length
+end
