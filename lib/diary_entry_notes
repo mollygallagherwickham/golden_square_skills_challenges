@@ -1,0 +1,18 @@
+diary_entry = DiaryEntry.new("Green Eggs and Ham", "I do not like them Sam-I-Am")
+expect(diary_entry.title).to eq "Green Eggs and Ham"
+
+diary_entry = DiaryEntry.new("Green Eggs and Ham", "I do not like them Sam-I-Am")
+expect(diary_entry.contents).to eq "I do not like them Sam-I-Am"
+
+diary_entry = DiaryEntry.new("Dear Diary","This is a new page!")
+expect(diary_entry.count_words).to eq 5
+
+diary_entry = DiaryEntry.new("Dear Diary","one " * 100)
+expect(diary_entry.reading_time(100)).to eq "1 minute" 
+
+diary_entry = DiaryEntry.new("Dear Diary","one " * 200)
+expect(diary_entry.reading_time(100)).to eq "2 minutes" 
+
+diary_entry = DiaryEntry.new("Dear Diary", "This is a new page")
+text = diary_entry.reading_chunk(100, 1)
+expect(text).to eq "This is a new page"

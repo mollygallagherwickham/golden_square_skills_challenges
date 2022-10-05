@@ -1,0 +1,13 @@
+check("A whole new world.") => true
+check("a whole new world.") => false
+check("A whole new world") => false
+check(nil) => false 
+check("") => false
+
+# looks through all text checks so far and returns a
+# percentage of how many passed
+percentage_good => 20%
+
+book = GrammarStats.new
+result = book.check("A whole new world.") 
+expect(result).to eq true
