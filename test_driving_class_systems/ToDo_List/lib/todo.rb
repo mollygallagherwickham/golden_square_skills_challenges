@@ -6,17 +6,20 @@ class ToDo
   
     def task
       fail "No task given." if @task.empty?
-      return @task
+      @task
     end
-  
+
     def mark_done!
       # Marks the todo as done
       # Returns nothing
-      "COMPLETE: #{@task}"
+      # fail "Task cannot be set to complete." if (@task.empty? || @task.include?("COMPLETE"))
+      return @task = "COMPLETE: #{@task}"
     end
   
     def done?
       # Returns true if the task is done
       # Otherwise, false
+      # fail "Task is empty." if @task.empty?
+      @task.start_with? "COMPLETE"
     end
   end 

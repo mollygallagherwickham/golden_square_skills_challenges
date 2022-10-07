@@ -7,28 +7,30 @@ class ToDoList
     def add(todo) # todo is an instance of Todo
       @list << todo
     end
-    
+
     def all
-      return @list
+      @list
     end
 
     def incomplete
-      # Returns all non-done todos
-      @list
+      @list - complete
     end
   
     def complete
-      @list
+      # Returns all complete todos
+      # somehow associated with 'done?' from ToDo class?  
+      @list.select{|todo| todo.include? "COMPLETE" }
     end
   
     def give_up!
       # Marks all todos as complete
+      # connection to mark_done! ?
+      @list.map do |entry|
+        if entry.include?("COMPLETE")
+          entry
+        else
+        "COMPLETE: #{entry}"
+        end
+      end
     end 
   end 
-
-  p todo = "Walk the dog"
-  p todo1 = "Wash the dishes"
-   todo_list = ToDoList.new
-   todo_list.add(todo)
-   todo_list.add(todo1)
-  p todo_list.incomplete
