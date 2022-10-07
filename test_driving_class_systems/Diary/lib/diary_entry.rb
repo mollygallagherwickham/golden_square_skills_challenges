@@ -4,21 +4,21 @@ class DiaryEntry
       @title = title
       @contents = contents
     end
-  
+
     def title
       @title
     end
-  
+
     def contents
       @contents
     end
-  
+
     def count_words
       # counts the words in the contents of the diary entry
       return 0 if @contents.empty?
       return @contents.count(" ") + 1
     end
-  
+
     def reading_time(wpm) # wpm is an integer representing
                           # the number of words the user can read per minute
       # Returns an integer representing an estimate of the reading time in minutes
@@ -27,7 +27,7 @@ class DiaryEntry
       # calculates reading time per entry
       return (count_words.to_f / wpm).ceil
     end
-  
+
     def reading_chunk(wpm, minutes) # `wpm` is an integer representing the number
                                     # of words the user can read per minute
                                     # `minutes` is an integer representing the

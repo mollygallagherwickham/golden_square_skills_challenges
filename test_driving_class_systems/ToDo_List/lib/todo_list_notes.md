@@ -117,17 +117,31 @@ todo_list.complete
 ```
 => "COMPLETE: Make the dinner"
 
-# Marks all tasks as done
+# Marks all incomplete tasks as done
 ```
 todo_list = ToDoList.new
 todo1 = ToDo.new("Walk the dog")
 todo2 = ToDo.new("Wash the dishes")
 todo3 = ToDo.new("Make the dinner")
+todo_list.add(todo1.task)
+todo_list.add(todo2.task)
+todo_list.add(todo3.task)
 todo_list.give_up! 
-=> ["COMPLETE: Walk the dog", "COMPLETE: Wash the dishes", "COMPLETE: Make the dinner" ]
+=> ["COMPLETE: Walk the dog", "COMPLETE: Wash the dishes", "COMPLETE: Make the dinner"]
 ```
-# does it need to output all tasks with complete?
-# or will a return message suffice? 
+
+# Marks all incomplete tasks as done
+```
+todo_list = ToDoList.new
+todo1 = ToDo.new("Walk the dog")
+todo2 = ToDo.new("Wash the dishes")
+todo3 = ToDo.new("Make the dinner")
+to_dolist.add(todo1.mark_done!)
+todo_list.add(todo2.task)
+todo_list.add(todo3.task)
+todo_list.give_up! 
+```
+=> ["COMPLETE: Walk the dog", "COMPLETE: Wash the dishes", "COMPLETE: Make the dinner"]
 
 
 
